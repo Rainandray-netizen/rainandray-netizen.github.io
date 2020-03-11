@@ -1,0 +1,30 @@
+{
+  "name": "rainandray-netizen.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Rainandray-netizen/rainandray-netizen.github.io",
+  "author": "Rainandray <ryan.d.adrian.27@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "COOKIE_SECRET=bad_secret PGUSER=postgres PGDATABASE=portfolio_database npx nodemon ./src/index.js",
+    "db:migrate": "DATABASE_URL=postgres://postgres@localhost:5432/portfolio_database node-pg-migrate",
+    "db:create": "npx createdbjs portfolio_database",
+    "db:drop": "npx dropdbjs portfolio_database || true",
+    "db:reset": "yarn db:drop && yarn db:create && yarn db:migrate up"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/styles": "^4.9.0",
+    "apollo-server": "^2.11.0",
+    "bcrypt": "^4.0.0",
+    "connect-pg-simple": "^6.1.0",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "esm": "^3.2.25",
+    "graphql": "^14.6.0",
+    "node-pg-migrate": "^4.2.2",
+    "nodemon": "^2.0.2",
+    "pg": "^7.18.2",
+    "pgtools": "^0.3.0"
+  }
+}
